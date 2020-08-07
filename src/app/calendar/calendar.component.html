@@ -1,0 +1,31 @@
+<mat-card id="calendar">
+  <mat-card-title>
+    {{ month + " " + currentYear }}
+  </mat-card-title>
+
+  <mat-card-content>
+    <mat-button-toggle-group>
+      <table>
+        <thead>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+        </thead>
+        <tbody id="calendar-body">
+
+        </tbody>
+
+      </table>
+    </mat-button-toggle-group>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary">Add</button>
+  </mat-card-actions>
+</mat-card>

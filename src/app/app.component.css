@@ -2,23 +2,5 @@ mat-grid-list {
   width: 750px;
   margin: auto;
 }
-mat-card-title {
-  padding: 5px;
-  text-align: center;
-}
-
-mat-button-toggle {
-  font-size: 18px;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th {
-  padding: 5px;
-}
-
 
 
