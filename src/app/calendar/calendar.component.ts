@@ -18,33 +18,30 @@ export class CalendarComponent implements OnInit {
   firstDay = (new Date(this.currentYear, this.currentMonth)).getDay();
   daysInMonth = 32 - new Date(this.currentYear, this.currentMonth, 32).getDate();
 
-  first = 1;
-  i: number;
-  j: number;
-
-  tbl = document.getElementById('calendar-body');
 
   ngOnInit(): void {
+    const tbl = document.getElementById('table-body');
 
-    for ( this.i = 0; this.i < 6; this.i++) {
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
       const row = document.createElement('tr');
-      for ( this.j = 0; this.j < 7; this.j++) {
-        if (this.i === 0 && this.j < this.firstDay) {
+
+      for (let j = 0; j < 7; j++) {
+        if ( i === 0 && j < this.firstDay) {
           const cell = document.createElement('td');
-          cell.appendChild(document.createTextNode(''));
-          row.appendChild(cell);
-        } else if (this.first > this.daysInMonth) {
+          cell.append(document.createTextNode(''));
+          row.append(cell);
+        } else if (date > this.daysInMonth) {
           break;
         } else {
           const cell = document.createElement('td');
-          cell.appendChild(document.createTextNode(this.first.toString()));
-          row.appendChild(cell);
-          this.first++;
+          cell.append(document.createTextNode(date.toString()));
+          row.append(cell);
+          date++;
         }
       }
-          this.tbl.appendChild(row);
+
+      tbl.append(row);
     }
   }
-
-
 }
