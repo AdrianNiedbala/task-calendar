@@ -1,5 +1,7 @@
+import { WeekElements } from './../interfaces/week';
 import { Component, OnInit } from '@angular/core';
-import { MAT_TOOLTIP_DEFAULT_OPTIONS_FACTORY } from '@angular/material/tooltip';
+import { DataSource } from '@angular/cdk/table';
+
 
 @Component({
   selector: 'app-calendar',
@@ -10,38 +12,49 @@ export class CalendarComponent implements OnInit {
 
   constructor() { }
 
-  months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   today = new Date();
   currentMonth = this.today.getMonth();
   currentYear = this.today.getFullYear();
+
+  months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   month = this.months[this.today.getMonth()];
-  firstDay = (new Date(this.currentYear, this.currentMonth)).getDay();
-  daysInMonth = 32 - new Date(this.currentYear, this.currentMonth, 32).getDate();
 
+  displayedColumns: string[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  dataSource = this.genCalendar(this.currentYear, this.currentMonth);
 
-  ngOnInit(): void {
-    const tbl = document.getElementById('table-body');
+  genCalendar(month, year) {
+
+    const calendarData: WeekElements[] = [];
+
+    const firstDay = (new Date(year, month)).getDay();
+    const daysInMonth = 32 - new Date(year, month, 32).getDate();
 
     let date = 1;
+
     for (let i = 0; i < 6; i++) {
-      const row = document.createElement('tr');
+
+      const weekData = [];
 
       for (let j = 0; j < 7; j++) {
-        if ( i === 0 && j < this.firstDay) {
-          const cell = document.createElement('td');
-          cell.append(document.createTextNode(''));
-          row.append(cell);
-        } else if (date > this.daysInMonth) {
+
+        if (i === 0 && j < firstDay) {
+          weekData[j] = ' ';
+        } else if (date > daysInMonth) {
           break;
         } else {
-          const cell = document.createElement('td');
-          cell.append(document.createTextNode(date.toString()));
-          row.append(cell);
+          weekData[j] = date;
           date++;
         }
+
       }
 
-      tbl.append(row);
+      calendarData.push({ sun: weekData[0],  mon: weekData[1],  tue: weekData[2],  wed: weekData[3],  thu: weekData[4],
+                           fri: weekData[5],  sat: weekData[6]});
     }
+
+    return calendarData;
+  }
+
+  ngOnInit(): void {
   }
 }

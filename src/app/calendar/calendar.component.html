@@ -4,25 +4,49 @@
   </mat-card-title>
 
   <mat-card-content>
-    <mat-button-toggle-group>
-      <table>
-        <thead>
-          <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-          </tr>
-        </thead>
-        <tbody id="calendar-body">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="sun">
+        <mat-header-cell *matHeaderCellDef> Sun </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.sun}} </mat-cell>
+      </ng-container>
 
-        </tbody>
+      <!-- Name Column -->
+      <ng-container matColumnDef="mon">
+        <mat-header-cell *matHeaderCellDef> Mon </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.mon}} </mat-cell>
+      </ng-container>
 
-      </table>
-    </mat-button-toggle-group>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="tue">
+        <mat-header-cell *matHeaderCellDef> Tue </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.tue}} </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="wed">
+        <mat-header-cell *matHeaderCellDef> Wed </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.wed}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="thu">
+        <mat-header-cell *matHeaderCellDef> Thu </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.thu}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="fri">
+        <mat-header-cell *matHeaderCellDef> Fri </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.fri}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="sat">
+        <mat-header-cell *matHeaderCellDef> Sat </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.sat}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
   </mat-card-content>
 
   <mat-card-actions>

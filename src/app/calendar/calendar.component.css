@@ -1,17 +1,13 @@
+mat-card {
+  width: 400px;
+  height: 450px;
+}
+
 mat-card-title {
   padding: 5px;
   text-align: center;
 }
 
-mat-button-toggle {
-  font-size: 18px;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-th {
-  padding: 5px;
+table {
+  width: 100%;
 }
