@@ -1,13 +1,23 @@
 mat-card {
-  width: 400px;
-  height: 450px;
+  width: 350px;
 }
 
 mat-card-title {
-  padding: 5px;
+  margin-bottom: 25px;
   text-align: center;
 }
 
 table {
   width: 100%;
 }
+
+#left {
+  float: left;
+  margin-left: 20px;
+}
+
+#right {
+  float: right;
+  margin-right: 20px;
+}
+

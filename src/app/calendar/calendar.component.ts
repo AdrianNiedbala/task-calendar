@@ -20,7 +20,7 @@ export class CalendarComponent implements OnInit {
   month = this.months[this.today.getMonth()];
 
   displayedColumns: string[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-  dataSource = this.genCalendar(this.currentYear, this.currentMonth);
+  dataSource = this.genCalendar(this.currentMonth, this.currentYear);
 
   genCalendar(month, year) {
 

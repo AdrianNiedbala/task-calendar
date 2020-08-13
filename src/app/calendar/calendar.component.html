@@ -1,6 +1,8 @@
 <mat-card id="calendar">
   <mat-card-title>
+    <button mat-flat-button color="primary" id="left">Prev</button>
     {{ month + " " + currentYear }}
+    <button mat-flat-button color="primary" id="right">Next</button>
   </mat-card-title>
 
   <mat-card-content>
@@ -49,7 +51,4 @@
     </mat-table>
   </mat-card-content>
 
-  <mat-card-actions>
-    <button mat-flat-button color="primary">Add</button>
-  </mat-card-actions>
 </mat-card>
