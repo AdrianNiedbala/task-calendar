@@ -11,13 +11,18 @@ table {
   width: 100%;
 }
 
-#left {
+#prev {
   float: left;
   margin-left: 20px;
 }
 
-#right {
+#next {
   float: right;
   margin-right: 20px;
+}
+
+#today {
+  display: block;
+  margin: 0 auto;
 }
 

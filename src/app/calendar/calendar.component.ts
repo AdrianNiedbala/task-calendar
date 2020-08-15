@@ -12,15 +12,16 @@ export class CalendarComponent implements OnInit {
 
   constructor() { }
 
-  today = new Date();
-  currentMonth = this.today.getMonth();
-  currentYear = this.today.getFullYear();
+  getToday = new Date();
+  currentMonth = this.getToday.getMonth();
+  currentYear = this.getToday.getFullYear();
 
   months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  month = this.months[this.today.getMonth()];
+  month = this.months[this.currentMonth];
 
   displayedColumns: string[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   dataSource = this.genCalendar(this.currentMonth, this.currentYear);
+
 
   genCalendar(month, year) {
 
@@ -53,6 +54,41 @@ export class CalendarComponent implements OnInit {
     }
 
     return calendarData;
+  }
+
+  prev() {
+    if (this.currentMonth === 0) {
+      this.currentYear --;
+      this.currentMonth = 11;
+    } else {
+      this.currentMonth --;
+    }
+
+    this.month = this.months[this.currentMonth];
+
+    this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
+  }
+
+  next() {
+    if (this.currentMonth === 11) {
+      this.currentYear ++;
+      this.currentMonth = 0;
+    } else {
+      this.currentMonth ++;
+    }
+
+    this.month = this.months[this.currentMonth];
+
+    this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
+  }
+
+  today() {
+    this.currentMonth = this.getToday.getMonth();
+    this.currentYear = this.getToday.getFullYear();
+
+    this.month = this.months[this.currentMonth];
+
+    this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
   }
 
   ngOnInit(): void {

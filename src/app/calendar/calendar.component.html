@@ -1,8 +1,8 @@
 <mat-card id="calendar">
   <mat-card-title>
-    <button mat-flat-button color="primary" id="left">Prev</button>
+    <button mat-flat-button color="primary" id="prev" (click)="prev()">Prev</button>
     {{ month + " " + currentYear }}
-    <button mat-flat-button color="primary" id="right">Next</button>
+    <button mat-flat-button color="primary" id="next" (click)="next()">Next</button>
   </mat-card-title>
 
   <mat-card-content>
@@ -50,5 +50,9 @@
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-flat-button color="primary" id="today" (click)="today()">Today</button>
+  </mat-card-actions>
 
 </mat-card>
