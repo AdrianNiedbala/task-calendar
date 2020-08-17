@@ -26,3 +26,11 @@ table {
   margin: 0 auto;
 }
 
+.mat-cell.hovered {
+  background: #eee;
+}
+
+.mat-cell.highlighted {
+  background: #999;
+}
+

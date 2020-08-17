@@ -6,4 +6,6 @@ export interface WeekElements {
   thu: string;
   fri: string;
   sat: string;
+  highlighted?: boolean;
+  hovered?: boolean;
 }

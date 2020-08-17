@@ -10,40 +10,83 @@
       <!-- Position Column -->
       <ng-container matColumnDef="sun">
         <mat-header-cell *matHeaderCellDef> Sun </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.sun}} </mat-cell>
+        <mat-cell  *matCellDef="let element; let i = index" [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'sun',
+        hovered: hoveredCellIndex == i && hoveredCellColumn == 'sun'}"
+        (click)="highlight(i, 'sun')"
+        (mouseover)="hover(i, 'sun')"
+        (mouseout)="hover(-1, '')">
+        {{element.sun}}
+        </mat-cell>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="mon">
         <mat-header-cell *matHeaderCellDef> Mon </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.mon}} </mat-cell>
+        <mat-cell *matCellDef="let element; let i = index" [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'mon',
+        hovered: hoveredCellIndex == i && hoveredCellColumn == 'mon'}"
+        (click)="highlight(i, 'mon')"
+        (mouseover)="hover(i, 'mon')"
+        (mouseout)="hover(-1, '')">
+        {{element.mon}}
+        </mat-cell>
       </ng-container>
 
       <!-- Weight Column -->
       <ng-container matColumnDef="tue">
         <mat-header-cell *matHeaderCellDef> Tue </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.tue}} </mat-cell>
+        <mat-cell *matCellDef="let element; let i = index" [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'tue',
+        hovered: hoveredCellIndex == i && hoveredCellColumn == 'tue'}"
+        (click)="highlight(i, 'tue')"
+        (mouseover)="hover(i, 'tue')"
+        (mouseout)="hover(-1, '')">
+        {{element.tue}}
+        </mat-cell>
       </ng-container>
 
       <!-- Symbol Column -->
       <ng-container matColumnDef="wed">
         <mat-header-cell *matHeaderCellDef> Wed </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.wed}} </mat-cell>
+        <mat-cell *matCellDef="let element; let i = index" [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'wed',
+        hovered: hoveredCellIndex == i && hoveredCellColumn == 'wed'}"
+        (click)="highlight(i, 'wed')"
+        (mouseover)="hover(i, 'wed')"
+        (mouseout)="hover(-1, '')">
+        {{element.wed}}
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="thu">
         <mat-header-cell *matHeaderCellDef> Thu </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.thu}} </mat-cell>
+        <mat-cell *matCellDef="let element; let i = index" [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'thu',
+        hovered: hoveredCellIndex == i && hoveredCellColumn == 'thu'}"
+        (click)="highlight(i, 'thu')"
+        (mouseover)="hover(i, 'thu')"
+        (mouseout)="hover(-1, '')">
+        {{element.thu}}
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="fri">
         <mat-header-cell *matHeaderCellDef> Fri </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.fri}} </mat-cell>
+        <mat-cell *matCellDef="let element; let i = index"
+        [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'fri',
+        hovered: hoveredCellIndex == i && hoveredCellColumn == 'fri'}"
+        (click)="highlight(i, 'fri')"
+        (mouseover)="hover(i, 'fri')"
+        (mouseout)="hover(-1, '')">
+        {{element.fri}}
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="sat">
         <mat-header-cell *matHeaderCellDef> Sat </mat-header-cell>
-        <mat-cell *matCellDef="let element"> {{element.sat}} </mat-cell>
+        <mat-cell *matCellDef="let element; let i = index" [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'sat',
+        hovered: hoveredCellIndex == i && hoveredCellColumn == 'sat'}"
+        (click)="highlight(i, 'sat')"
+        (mouseover)="hover(i, 'sat')"
+        (mouseout)="hover(-1, '')">
+        {{element.sat}}
+        </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

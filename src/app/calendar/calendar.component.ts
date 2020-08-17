@@ -1,6 +1,7 @@
 import { WeekElements } from './../interfaces/week';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
+import { element } from 'protractor';
 
 
 @Component({
@@ -22,6 +23,20 @@ export class CalendarComponent implements OnInit {
   displayedColumns: string[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   dataSource = this.genCalendar(this.currentMonth, this.currentYear);
 
+  selectedCellIndex: number;
+  selectedCellColumn = '';
+  hoveredCellIndex: number;
+  hoveredCellColumn: string;
+
+  highlight(index: number, column: string) {
+    this.selectedCellIndex = index;
+    this.selectedCellColumn = column;
+  }
+
+  hover(index: number, column: string) {
+    this.hoveredCellIndex = index;
+    this.hoveredCellColumn = column;
+  }
 
   genCalendar(month, year) {
 
@@ -67,6 +82,8 @@ export class CalendarComponent implements OnInit {
     this.month = this.months[this.currentMonth];
 
     this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
+
+    this.highlight(-1, '')
   }
 
   next() {
@@ -80,6 +97,8 @@ export class CalendarComponent implements OnInit {
     this.month = this.months[this.currentMonth];
 
     this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
+
+    this.highlight(-1, '')
   }
 
   today() {
@@ -89,7 +108,10 @@ export class CalendarComponent implements OnInit {
     this.month = this.months[this.currentMonth];
 
     this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
+
+    this.highlight(-1, '')
   }
+
 
   ngOnInit(): void {
   }
