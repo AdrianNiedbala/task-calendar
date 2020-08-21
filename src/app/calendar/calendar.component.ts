@@ -28,15 +28,15 @@ export class CalendarComponent implements OnInit {
   hoveredCellIndex: number;
   hoveredCellColumn: string;
 
-  highlight(index: number, column: string) {
+  select(index: number, column: string) {
     this.selectedCellIndex = index;
     this.selectedCellColumn = column;
   }
 
-  hover(index: number, column: string) {
-    this.hoveredCellIndex = index;
-    this.hoveredCellColumn = column;
-  }
+  // hover(index: number, column: string) {
+  //   this.hoveredCellIndex = index;
+  //   this.hoveredCellColumn = column;
+  // }
 
   genCalendar(month, year) {
 
@@ -83,7 +83,7 @@ export class CalendarComponent implements OnInit {
 
     this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
 
-    this.highlight(-1, '')
+    this.select(-1, '')
   }
 
   next() {
@@ -98,7 +98,7 @@ export class CalendarComponent implements OnInit {
 
     this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
 
-    this.highlight(-1, '')
+    this.select(-1, '')
   }
 
   today() {
@@ -109,7 +109,7 @@ export class CalendarComponent implements OnInit {
 
     this.dataSource = this.genCalendar(this.currentMonth, this.currentYear);
 
-    this.highlight(-1, '')
+    this.select(-1, '')
   }
 
 
