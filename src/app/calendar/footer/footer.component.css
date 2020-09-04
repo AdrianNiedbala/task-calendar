@@ -1,0 +1,7 @@
+mat-form-field {
+  width: 35%;
+  margin-right: 15px;
+}
+mat-form-field:first-of-type {
+  margin-left: 5px;
+}

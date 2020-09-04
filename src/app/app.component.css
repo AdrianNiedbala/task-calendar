@@ -1,6 +1,18 @@
-mat-grid-list {
-  width: 1500px;
-  margin: 30px auto 10px auto;
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  display: inline-block;
+  margin: 10px;
+}
+
+.tasks {
+  display: inline-block;
+  margin: 10px;
 }
 
 

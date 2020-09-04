@@ -1,0 +1,95 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="sun">
+    <mat-header-cell *matHeaderCellDef> Sun </mat-header-cell>
+    <mat-cell  *matCellDef="let element; let i = index"
+    [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'sun',
+    hovered: hoveredCellIndex == i && hoveredCellColumn == 'sun',
+    today: todayCellIndex == i && todayCellColumn == 'sun'}"
+    (click)="select(i, 'sun', element.sun)"
+    (mouseover)="hover(i, 'sun', element.sun)"
+    (mouseout)="hover(-1, '', element.sun)">
+    {{element.sun}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mon">
+    <mat-header-cell *matHeaderCellDef> Mon </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"
+    [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'mon',
+    hovered: hoveredCellIndex == i && hoveredCellColumn == 'mon',
+    today: todayCellIndex == i && todayCellColumn == 'mon'}"
+    (click)="select(i, 'mon', element.mon)"
+    (mouseover)="hover(i, 'mon', element.mon)"
+    (mouseout)="hover(-1, '', element.mon)">
+    {{element.mon}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="tue">
+    <mat-header-cell *matHeaderCellDef> Tue </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"
+    [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'tue',
+    hovered: hoveredCellIndex == i && hoveredCellColumn == 'tue',
+    today: todayCellIndex == i && todayCellColumn == 'tue'}"
+    (click)="select(i, 'tue', element.tue)"
+    (mouseover)="hover(i, 'tue', element.tue)"
+    (mouseout)="hover(-1, '', element.tue)">
+    {{element.tue}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="wed">
+    <mat-header-cell *matHeaderCellDef> Wed </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"
+    [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'wed',
+    hovered: hoveredCellIndex == i && hoveredCellColumn == 'wed',
+    today: todayCellIndex == i && todayCellColumn == 'wed'}"
+    (click)="select(i, 'wed', element.wed)"
+    (mouseover)="hover(i, 'wed', element.wed)"
+    (mouseout)="hover(-1, '', element.wed)">
+    {{element.wed}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="thu">
+    <mat-header-cell *matHeaderCellDef> Thu </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"
+    [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'thu',
+    hovered: hoveredCellIndex == i && hoveredCellColumn == 'thu',
+    today: todayCellIndex == i && todayCellColumn == 'thu'}"
+    (click)="select(i, 'thu', element.thu)"
+    (mouseover)="hover(i, 'thu', element.thu)"
+    (mouseout)="hover(-1, '', element.thu)">
+    {{element.thu}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fri">
+    <mat-header-cell *matHeaderCellDef> Fri </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"
+    [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'fri',
+    hovered: hoveredCellIndex == i && hoveredCellColumn == 'fri',
+    today: todayCellIndex == i && todayCellColumn == 'fri'}"
+    (click)="select(i, 'fri', element.fri)"
+    (mouseover)="hover(i, 'fri', element.fri)"
+    (mouseout)="hover(-1, '', element.fri)">
+    {{element.fri}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="sat">
+    <mat-header-cell *matHeaderCellDef> Sat </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index"
+    [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'sat',
+    hovered: hoveredCellIndex == i && hoveredCellColumn == 'sat',
+    today: todayCellIndex == i && todayCellColumn == 'sat'}"
+    (click)="select(i, 'sat', element.sat)"
+    (mouseover)="hover(i, 'sat', element.sat)"
+    (mouseout)="hover(-1, '', element.sat)">
+    {{element.sat}}
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

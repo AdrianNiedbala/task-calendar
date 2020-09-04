@@ -1,3 +1,7 @@
+
+import { FooterComponent } from './calendar/footer/footer.component';
+import { ContentComponent } from './calendar/content/content.component';
+import { CalendarService } from './services/calendar.service';
 import { TasksComponent } from './tasks/tasks.component';
 import { MaterialModule } from './material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,12 +11,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarComponent } from './calendar/calendar.component';
+import { HeaderComponent } from './calendar/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CalendarComponent,
-    TasksComponent
+    TasksComponent,
+    HeaderComponent,
+    ContentComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +28,9 @@ import { CalendarComponent } from './calendar/calendar.component';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [
+    CalendarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
