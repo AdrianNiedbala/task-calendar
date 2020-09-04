@@ -10,8 +10,15 @@ export class FooterComponent implements OnInit {
 
   constructor(private calendarService: CalendarService) { }
 
+  selectedMonth: string;
+  selectedYear: string;
+
   months = this.calendarService.months;
   years = this.calendarService.genYearsArray();
+
+  goTo() {
+    this.calendarService.goTo(this.selectedMonth, this.selectedYear);
+  }
 
   ngOnInit(): void {
   }

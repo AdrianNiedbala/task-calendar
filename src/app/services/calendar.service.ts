@@ -86,6 +86,14 @@ export class CalendarService {
     this.newCalendar.next(this.genCalendar());
   }
 
+  goTo(month: string, year: string) {
+    this.currentMonth = this.months.findIndex(mon => mon === month);
+    this.currentYear = +year;
+
+    this.newHeader.next(this.setHeader());
+    this.newCalendar.next(this.genCalendar());
+  }
+
   genYearsArray() {
     let year = this.currentYear - 60;
     const yearsArray: string[] = [];

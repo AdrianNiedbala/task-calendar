@@ -1,15 +1,15 @@
 <mat-form-field>
   <mat-label>Month</mat-label>
-  <mat-select>
+  <mat-select [(value)]="selectedMonth">
     <mat-option>None</mat-option>
-    <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
+    <mat-option *ngFor="let month of months" value="{{ month }}">{{ month }}</mat-option>
   </mat-select>
 </mat-form-field>
 <mat-form-field>
   <mat-label>Year</mat-label>
-  <mat-select>
+  <mat-select [(value)]="selectedYear">
     <mat-option>None</mat-option>
-    <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+    <mat-option *ngFor="let year of years" value="{{ year }}">{{ year }}</mat-option>
   </mat-select>
 </mat-form-field>
-<button mat-flat-button color="primary">Go to</button>
+<button mat-flat-button color="primary" (click)="goTo()">Go to</button>
