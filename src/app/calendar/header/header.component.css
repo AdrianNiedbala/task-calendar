@@ -1,3 +1,9 @@
 span {
-  margin: 0 35px;
+  display: inline-block;
+  width: 40%;
+  margin: 0 25px;
+}
+
+button {
+  display: inline-block;
 }

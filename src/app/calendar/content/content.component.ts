@@ -10,31 +10,29 @@ export class ContentComponent implements OnInit {
 
   constructor(private calendarService: CalendarService) { }
 
-  displayedColumns: string[] = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  displayedColumns: string[] = this.calendarService.getWeek();
   dataSource = this.calendarService.genCalendar();
 
   selectedCellIndex: number;
   selectedCellColumn: string;
   hoveredCellIndex: number;
   hoveredCellColumn: string;
-  todayCellIndex: number;
-  todayCellColumn: string;
+  todayCellIndex = this.calendarService.getTodayIndex();
+  todayCellColumn = this.calendarService.getTodayColumn();
+  highlightToday = true;
 
-  select(index: number, column: string, cellData?: string) {
+  select(index: number, column: string, cellData: string) {
     if (cellData === '') {
-      return false;
-    } else if (index === this.todayCellIndex && column === this.todayCellColumn) {
       return false;
     } else {
       this.selectedCellIndex = index;
       this.selectedCellColumn = column;
     }
+    console.log('sth');
   }
 
   hover(index: number, column: string, cellData: string) {
     if (cellData === '') {
-      return false;
-    } else if (index === this.todayCellIndex && column === this.todayCellColumn) {
       return false;
     } else {
       this.hoveredCellIndex = index;
@@ -51,6 +49,9 @@ export class ContentComponent implements OnInit {
     });
     this.calendarService.newIndex().subscribe(index => {
       this.selectedCellIndex = index;
+    });
+    this.calendarService.gethighlightToday().subscribe(highlight => {
+      this.highlightToday = highlight;
     });
   }
 

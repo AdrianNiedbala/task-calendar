@@ -16,6 +16,10 @@ export class CalendarService {
   private newHeader = new Subject<string>();
   private resetIndex = new Subject<number>();
   private resetColumn = new Subject<string>();
+  private week = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+  private todayColumn = this.week[this.getToday.getDay()];
+  private todayIndex;
+  private highlightToday = new Subject<boolean>();
 
   months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -45,6 +49,9 @@ export class CalendarService {
         if ((i === 0 && j < firstDay) || (date > daysInMonth)) {
           weekData[j] = '';
         } else {
+          if (date === this.getToday.getDate()) {
+            this.todayIndex = i;
+          }
           weekData[j] = date;
           date++;
         }
@@ -62,6 +69,10 @@ export class CalendarService {
     return this.newCalendar.asObservable();
   }
 
+  getWeek() {
+    return this.week;
+  }
+
   prev() {
     if (this.currentMonth === 0) {
       this.currentYear --;
@@ -70,6 +81,7 @@ export class CalendarService {
       this.currentMonth --;
     }
 
+    this.setHighlightToday();
     this.newHeader.next(this.setHeader());
     this.newCalendar.next(this.genCalendar());
   }
@@ -82,6 +94,7 @@ export class CalendarService {
       this.currentMonth ++;
     }
 
+    this.setHighlightToday();
     this.newHeader.next(this.setHeader());
     this.newCalendar.next(this.genCalendar());
   }
@@ -90,15 +103,16 @@ export class CalendarService {
     this.currentMonth = this.months.findIndex(mon => mon === month);
     this.currentYear = +year;
 
+    this.setHighlightToday();
     this.newHeader.next(this.setHeader());
     this.newCalendar.next(this.genCalendar());
   }
 
   genYearsArray() {
-    let year = this.currentYear - 60;
+    let year = this.currentYear - 10;
     const yearsArray: string[] = [];
 
-    for (let i = 1; i < 72; i++) {
+    for (let i = 0; i < 21; i++) {
       yearsArray.push(year.toString());
       year++;
     }
@@ -118,4 +132,25 @@ export class CalendarService {
   newColumn(): Observable<string> {
     return this.resetColumn.asObservable();
   }
+
+  getTodayColumn() {
+    return this.todayColumn;
+  }
+
+  getTodayIndex() {
+    return this.todayIndex;
+  }
+
+  setHighlightToday() {
+    if (this.currentMonth === this.getToday.getMonth()) {
+      this.highlightToday.next(true);
+    } else {
+      this.highlightToday.next(false);
+    }
+  }
+
+  gethighlightToday(): Observable<boolean> {
+    return this.highlightToday.asObservable();
+  }
 }
+

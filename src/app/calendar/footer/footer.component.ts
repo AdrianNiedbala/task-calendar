@@ -18,6 +18,8 @@ export class FooterComponent implements OnInit {
 
   goTo() {
     this.calendarService.goTo(this.selectedMonth, this.selectedYear);
+    this.selectedMonth = 'None';
+    this.selectedYear = 'None';
   }
 
   ngOnInit(): void {

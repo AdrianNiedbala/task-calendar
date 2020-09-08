@@ -4,7 +4,7 @@
     <mat-cell  *matCellDef="let element; let i = index"
     [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'sun',
     hovered: hoveredCellIndex == i && hoveredCellColumn == 'sun',
-    today: todayCellIndex == i && todayCellColumn == 'sun'}"
+    today: todayCellIndex == i && todayCellColumn == 'sun' && highlightToday}"
     (click)="select(i, 'sun', element.sun)"
     (mouseover)="hover(i, 'sun', element.sun)"
     (mouseout)="hover(-1, '', element.sun)">
@@ -17,7 +17,7 @@
     <mat-cell *matCellDef="let element; let i = index"
     [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'mon',
     hovered: hoveredCellIndex == i && hoveredCellColumn == 'mon',
-    today: todayCellIndex == i && todayCellColumn == 'mon'}"
+    today: todayCellIndex == i && todayCellColumn == 'mon' && highlightToday}"
     (click)="select(i, 'mon', element.mon)"
     (mouseover)="hover(i, 'mon', element.mon)"
     (mouseout)="hover(-1, '', element.mon)">
@@ -30,7 +30,7 @@
     <mat-cell *matCellDef="let element; let i = index"
     [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'tue',
     hovered: hoveredCellIndex == i && hoveredCellColumn == 'tue',
-    today: todayCellIndex == i && todayCellColumn == 'tue'}"
+    today: todayCellIndex == i && todayCellColumn == 'tue' && highlightToday}"
     (click)="select(i, 'tue', element.tue)"
     (mouseover)="hover(i, 'tue', element.tue)"
     (mouseout)="hover(-1, '', element.tue)">
@@ -43,7 +43,7 @@
     <mat-cell *matCellDef="let element; let i = index"
     [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'wed',
     hovered: hoveredCellIndex == i && hoveredCellColumn == 'wed',
-    today: todayCellIndex == i && todayCellColumn == 'wed'}"
+    today: todayCellIndex == i && todayCellColumn == 'wed' && highlightToday}"
     (click)="select(i, 'wed', element.wed)"
     (mouseover)="hover(i, 'wed', element.wed)"
     (mouseout)="hover(-1, '', element.wed)">
@@ -56,7 +56,7 @@
     <mat-cell *matCellDef="let element; let i = index"
     [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'thu',
     hovered: hoveredCellIndex == i && hoveredCellColumn == 'thu',
-    today: todayCellIndex == i && todayCellColumn == 'thu'}"
+    today: todayCellIndex == i && todayCellColumn == 'thu' && highlightToday}"
     (click)="select(i, 'thu', element.thu)"
     (mouseover)="hover(i, 'thu', element.thu)"
     (mouseout)="hover(-1, '', element.thu)">
@@ -69,7 +69,7 @@
     <mat-cell *matCellDef="let element; let i = index"
     [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'fri',
     hovered: hoveredCellIndex == i && hoveredCellColumn == 'fri',
-    today: todayCellIndex == i && todayCellColumn == 'fri'}"
+    today: todayCellIndex == i && todayCellColumn == 'fri' && highlightToday}"
     (click)="select(i, 'fri', element.fri)"
     (mouseover)="hover(i, 'fri', element.fri)"
     (mouseout)="hover(-1, '', element.fri)">
@@ -82,7 +82,7 @@
     <mat-cell *matCellDef="let element; let i = index"
     [ngClass]="{highlighted: selectedCellIndex == i && selectedCellColumn == 'sat',
     hovered: hoveredCellIndex == i && hoveredCellColumn == 'sat',
-    today: todayCellIndex == i && todayCellColumn == 'sat'}"
+    today: todayCellIndex == i && todayCellColumn == 'sat' && highlightToday}"
     (click)="select(i, 'sat', element.sat)"
     (mouseover)="hover(i, 'sat', element.sat)"
     (mouseout)="hover(-1, '', element.sat)">

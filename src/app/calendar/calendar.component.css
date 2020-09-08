@@ -5,7 +5,7 @@ mat-card {
 }
 
 mat-card-title {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
